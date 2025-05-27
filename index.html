@@ -3,9 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
     <title>Dispatch Decoders Homepage</title>
 </head>
 <body>
-    <p>a little bit of filler :D</p>
+    <p>Build your emergency scenario, and see the distributions of response time, 
+        and the relationship between distance and response time</p>
+
+    <!-- Toggles -->
+    <div class="toggles-wrapper">
+        <div class="toggle-container">
+            <label for="incident-type">Incident Type:</label>
+            <select id="incident-type">
+                <option value="np">No preference</option>
+                <option value="accident">Accident</option>
+                <option value="cardiac-arrest">Cardiac Arrest</option>
+                <option value="fire">Fire</option>
+            </select>
+        </div>
+        <div class="toggle-container">
+            <label for="region-type">Region Type:</label>
+            <select id="region-type">
+                <option value="np">No preference</option>
+                <option value="urban">Urban</option>
+                <option value="suburban">Suburban</option>
+                <option value="rural">Rural</option>
+            </select>
+        </div>
+        <div class="toggle-container">
+            <label for="road-type">Road Type:</label>
+            <select id="road-type">
+                <option value="np">No preference</option>
+                <option value="highway">Highway</option>
+                <option value="local">Local Road</option>
+                <option value="unpaved">Unpaved Road</option>
+            </select>
+        </div>
+        <div class="toggle-container">
+            <label for="weather-condition">Weather Condition:</label>
+            <select id="weather-condition">
+                <option value="np">No preference</option>
+                <option value="clear">Clear</option>
+                <option value="rainy">Rainy</option>
+                <option value="stormy">Stormy</option>
+            </select>
+        </div>
+        <div class="toggle-container">
+            <label for="weather-impact">Weather Impact:</label>
+            <select id="weather-impact">
+                <option value="np">No preference</option>
+                <option value="none">None</option>
+                <option value="moderate">Moderate</option>
+                <option value="severe">Severe</option>
+            </select>
+        </div>
+        <div class="toggle-container">
+            <label for="dispatch-coordinator">Dispatch Coordinator:</label>
+            <select id="dispatch-coordinator">
+                <option value="np">No preference</option>
+                <option value="human">Human</option>
+                <option value="ai">AI</option>
+            </select>
+        </div>
+        <div class="toggle-container">
+            <label for="label">Label:</label>
+            <select id="label">
+                <option value="np">No preference</option>
+                <option value="drone-only">Drone Only</option>
+                <option value="ambulance-only">Ambulance Only</option>
+                <option value="hybrid">Hybrid Dispatch</option>
+            </select>
+        </div>        
+    </div>        
 </body>
 </html>

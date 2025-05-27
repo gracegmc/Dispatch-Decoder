@@ -1,0 +1,68 @@
+/* style.css */
+
+/* General Page Style */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 40px 20px;
+    color: #333;
+}
+
+/* Intro paragraph */
+p {
+    max-width: 700px;
+    font-size: 18px;
+    margin: 0 auto 40px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Container for all toggles, allows wrapping */
+.toggles-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Each toggle box */
+.toggle-container {
+    flex: 1 1 280px; /* Grow/shrink, base width */
+    max-width: 300px;
+    background-color: #ffffff;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Label styling */
+.toggle-container label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+/* Dropdown styling */
+.toggle-container select {
+    padding: 10px 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    transition: border-color 0.2s ease;
+}
+
+.toggle-container select:focus {
+    border-color: #0077ff;
+    outline: none;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .toggle-container {
+        flex: 1 1 100%;
+    }
+}
