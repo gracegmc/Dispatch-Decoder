@@ -42,12 +42,12 @@ function applyFilters() {
   };
 
   const filtered = allData.filter(d => {
-    return (!filters["incident-type"] || filters["incident-type"] === "np" || d.Incident_Type?.toLowerCase() === filters["incident-type"]) &&
-           (!filters["region-type"] || filters["region-type"] === "np" || d.Region_Type?.toLowerCase() === filters["region-type"]) &&
-           (!filters["road-type"] || filters["road-type"] === "np" || d.Road_Type?.toLowerCase() === filters["road-type"]) &&
-           (!filters["weather-condition"] || filters["weather-condition"] === "np" || d.Weather_Condition?.toLowerCase() === filters["weather-condition"]) &&
-           (!filters["weather-impact"] || filters["weather-impact"] === "np" || d.Weather_Impact?.toLowerCase() === filters["weather-impact"]) &&
-           (!filters["dispatch-coordinator"] || filters["dispatch-coordinator"] === "np" || d.Dispatch_Coordinator?.toLowerCase() === filters["dispatch-coordinator"]) &&
+    return (!filters["incident-type"] || filters["incident-type"] === "np" || d.Incident?.toLowerCase() === filters["incident-type"]) &&
+           (!filters["region-type"] || filters["region-type"] === "np" || Region?.toLowerCase() === filters["region-type"]) &&
+           (!filters["road-type"] || filters["road-type"] === "np" || d.Road?.toLowerCase() === filters["road-type"]) &&
+           (!filters["weather-condition"] || filters["weather-condition"] === "np" || d.Wthr_Cond?.toLowerCase() === filters["weather-condition"]) &&
+           (!filters["weather-impact"] || filters["weather-impact"] === "np" || d.Wthr_Impact?.toLowerCase() === filters["weather-impact"]) &&
+           (!filters["dispatch-coordinator"] || filters["dispatch-coordinator"] === "np" || d.Dispatcher?.toLowerCase() === filters["dispatch-coordinator"]) &&
            (!filters["label"] || filters["label"] === "np" || d.Label?.toLowerCase().replace(" ", "-") === filters["label"]);
   });
 
