@@ -2,7 +2,7 @@ console.log("JS IS RUNNING");
 
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
-// svg
+// Select SVG and define dimensions
 const svg = d3.select("#scatter-plot")
   .attr("width", 800)
   .attr("height", 500);
@@ -16,14 +16,14 @@ const chartGroup = svg.append("g")
 
 let allData = [];
 
-// json
+// Load JSON data
 fetch("emergency_data.json")
   .then(res => res.json())
   .then(data => {
     allData = data;
     applyFilters();
 
-    // event listeners for the dropdowns
+    // Attach event listeners to all dropdowns
     document.querySelectorAll(".toggle-container select").forEach(select => {
       select.addEventListener("change", applyFilters);
     });
