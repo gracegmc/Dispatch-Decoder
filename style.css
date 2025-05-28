@@ -65,4 +65,29 @@ p {
     .toggle-container {
         flex: 1 1 100%;
     }
+    svg#scatter-plot {
+        width: 100% !important;
+        height: auto;
+    }
 }
+
+svg#scatter-plot {
+    display: block;
+    margin: 40px auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.no-data-message {
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+    margin-top: 40px;
+}
+
+.toggle-container select:hover {
+    border-color: #005fcc;
+    cursor: pointer;
+}
+
