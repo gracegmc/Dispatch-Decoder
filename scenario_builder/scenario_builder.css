@@ -85,12 +85,12 @@ body {
 }
 
 /* PLOT button */
-.plot-buttons {
+.plot-button {
     display: flex;
     justify-content: center;
     margin: 2rem 0;
 }
-.plot-buttons button#plot {
+.plot-button button#plot {
     width: 80%;
     padding: 1rem 2rem;
     background-color: white; /* lighter than #cb6767 */
@@ -101,7 +101,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
-.plot-buttons button#plot:hover {
+.plot-button button#plot:hover {
     background-color: #cb6767;
     transform: scale(1.05);
 }
@@ -121,18 +121,6 @@ body {
     color: #cb0000;
     border-radius: 8px;
     text-align: center;
-}
-
-/* CHART */
-#chart {
-    display: none; /* WILL UPDATE TO FLEX USING JS */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: 30px;
-    border: 2px solid #cb6767; /* Red border around everything */
-    border-radius: 12px;
 }
 
 /* One big box for toggles + slider */
@@ -199,4 +187,60 @@ body {
 #distance-value {
     font-weight: bold;
     color: #cb6767;
+}
+
+/* CHART */
+#chart {
+    display: none; /* WILL UPDATE TO FLEX USING JS */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+    border: 2px solid #cb6767; /* Red border around everything */
+    border-radius: 12px;
+}
+/* General SVG text styling */
+.chart text {
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+/* Axis labels */
+.axis-label {
+    text-anchor: middle;
+    font-size: 14px;
+    fill: #333;
+}
+
+/* Scatter dots */
+.scatter-dot {
+    fill: #1f77b4;
+    opacity: 0.7;
+}
+
+/* Regression line */
+.regression-line {
+    fill: none;
+    stroke: red;
+    stroke-width: 2;
+}
+
+/* Predicted point */
+.predicted-dot {
+    fill: red;
+}
+
+/* Prediction label */
+#predictedTime {
+    fill: red;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.predicted-bg {
+    fill: white;
+    opacity: 0.7;
+    border: 1px solid #ccc;
+    rx: 4; /* Optional: rounded corners */
 }

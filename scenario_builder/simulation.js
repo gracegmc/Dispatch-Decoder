@@ -265,19 +265,18 @@ function filterAndPlot() {
 }
 
 function renderScatterplot(data) {
-    // Clear old plot
-    d3.select("#chart").select("svg").remove();
+    d3.select("#scatterplot").selectAll("*").remove();
 
     const margin = { top: 40, right: 40, bottom: 60, left: 60 };
     const width = 600 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
 
-    const svg = d3.select("#chart")
-        .append("svg")
+    const svg = d3.select("#chart").select("#scatterplot")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
-        .attr("transform", `translate(${margin.left},${margin.top})`);
+        .attr("transform", `translate(${margin.left},${margin.top})`)
+        .classed("chart", true);
 
     const x = d3.scaleLinear()
         .domain([0, d3.max(data, d => d.Distance_to_Incident)]).nice()
@@ -294,19 +293,18 @@ function renderScatterplot(data) {
     svg.append("g")
         .call(d3.axisLeft(y).ticks(8));
 
-    // Scatter points
+    // Scatter dots
     svg.append("g")
-        .selectAll("dot")
+        .selectAll("circle")
         .data(data)
         .enter()
         .append("circle")
         .attr("cx", d => x(d.Distance_to_Incident))
         .attr("cy", d => y(d.Response_Time))
         .attr("r", 4)
-        .style("fill", "#1f77b4")
-        .style("opacity", 0.7);
+        .attr("class", "scatter-dot");
 
-    // Linear regression (least squares)
+    // Linear regression
     const n = data.length;
     const sumX = d3.sum(data, d => d.Distance_to_Incident);
     const sumY = d3.sum(data, d => d.Response_Time);
@@ -321,48 +319,82 @@ function renderScatterplot(data) {
         .y(d => y(d.y));
 
     const lineData = [
-        { x: d3.min(data, d => d.Distance_to_Incident), y: null },
-        { x: d3.max(data, d => d.Distance_to_Incident), y: null }
+        { x: d3.min(data, d => d.Distance_to_Incident) },
+        { x: d3.max(data, d => d.Distance_to_Incident) }
     ];
     lineData[0].y = slope * lineData[0].x + intercept;
     lineData[1].y = slope * lineData[1].x + intercept;
 
     svg.append("path")
         .datum(lineData)
-        .attr("fill", "none")
-        .attr("stroke", "red")
-        .attr("stroke-width", 2)
+        .attr("class", "regression-line")
         .attr("d", line);
 
-    // Prediction for selected distance
+    // Prediction point
     const predictedTime = slope * distance + intercept;
     svg.append("circle")
         .attr("cx", x(distance))
         .attr("cy", y(predictedTime))
         .attr("r", 6)
-        .style("fill", "red");
+        .attr("class", "predicted-dot");
 
-    svg.append("text")
-        .attr("x", x(distance) + 8)
-        .attr("y", y(predictedTime) - 10)
-        .text(`Predicted: ${predictedTime.toFixed(1)} min`)
-        .style("fill", "red")
-        .style("font-size", "12px");
+    const labelText = `Predicted: ${predictedTime.toFixed(1)} min`;
+    let labelX = x(distance) + 8;
+    let labelAnchor = "start";
+    const labelY = y(predictedTime) - 10;
+    
+    // Create a group to hold both rect and text
+    const labelGroup = svg.append("g").attr("class", "predicted-label");
+    
+    // Add the text (invisible for now) to measure it
+    const tempText = labelGroup.append("text")
+        .attr("x", labelX)
+        .attr("y", labelY)
+        .attr("id", "predictedTime")
+        .text(labelText)
+        .style("visibility", "hidden");
+    
+    // NOW measure size
+    const bbox = tempText.node().getBBox();
+    
+    // Check if it overflows and adjust
+    if (labelX + bbox.width > width) {
+        labelX = x(distance) - 8;
+        labelAnchor = "end";
+        tempText.attr("x", labelX).style("text-anchor", labelAnchor);
+    }
+    
+    // Recalculate after adjustment
+    const finalBBox = tempText.node().getBBox();
+    
+    // Add background rect first (so it appears behind)
+    labelGroup.insert("rect", "text")
+        .attr("x", finalBBox.x - 4)
+        .attr("y", finalBBox.y - 2)
+        .attr("width", finalBBox.width + 8)
+        .attr("height", finalBBox.height + 4)
+        .attr("class", "predicted-bg");
+    
+    // Reveal the text
+    tempText.style("visibility", "visible");
+
+        
 
     // Axis labels
     svg.append("text")
         .attr("x", width / 2)
         .attr("y", height + 45)
-        .style("text-anchor", "middle")
+        .attr("class", "axis-label")
         .text("Distance to Incident (km)");
 
     svg.append("text")
         .attr("transform", "rotate(-90)")
         .attr("x", -height / 2)
         .attr("y", -40)
-        .style("text-anchor", "middle")
+        .attr("class", "axis-label")
         .text("Response Time (min)");
 }
+
 
 //EVENT LISTENERs
 
@@ -391,6 +423,8 @@ document.getElementById('plot').addEventListener('click', () => {
     if (!hasRenderedUI) {
         console.log(`hasRenderedUI = ${hasRenderedUI}`)
         renderTogglesOnly(scenario);
+        console.log(`hasRenderedUI = ${hasRenderedUI}`)
+
     }
     document.getElementById('chart').style.display = 'flex';
     document.getElementById('warning').style.display = 'none';
