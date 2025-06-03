@@ -1,0 +1,72 @@
+[
+    {
+        "wrapper-id": "Weather",
+        "button-id": "clear",
+        "image": "button_images/sunny-icon.png",
+        "text": "bright and sunny day",
+        "alt": "Sunny Icon"
+    },
+    {
+        "wrapper-id": "Weather",
+        "button-id": "rainy",
+        "image": "button_images/rainy-icon.png",
+        "text": "rainy afternoon",
+        "alt": "Rainy Icon"
+    },
+    {
+        "wrapper-id": "Weather",
+        "button-id": "stormy",
+        "image": "button_images/stormy-icon.png",
+        "text": "dark and stormy night",
+        "alt": "Stormy Icon"
+    },
+    {
+        "wrapper-id": "Location",
+        "button-id": "urban",
+        "image": "button_images/urban-icon.png",
+        "text": "in the city, the heart of sydney, walking down the street",
+        "alt": "Urban Icon"
+    },
+    {
+        "wrapper-id": "Location",
+        "button-id": "suburban",
+        "image": "button_images/suburban-icon.png",
+        "text": "outside your airbnb, on a casual stroll",
+        "alt": "Suburban Icon"
+    },
+    {
+        "wrapper-id": "Location",
+        "button-id": "rural",
+        "image": "button_images/rural-icon.png",
+        "text": "in nature, out on a hike",
+        "alt": "Rural Icon"
+    },
+    {
+        "wrapper-id": "Incident_Type",
+        "button-id": "accident",
+        "image": "button_images/accident-icon.png",
+        "text": "get hit by a car",
+        "alt": "Accident Icon"
+    },
+    {
+        "wrapper-id": "Incident_Type",
+        "button-id": "cardiac-arrest",
+        "image": "button_images/cardiac-arrest-icon.png",
+        "text": "have a heart attack",
+        "alt": "Cardiac Attack Icon"
+    },
+    {
+        "wrapper-id": "Incident_Type",
+        "button-id": "fire",
+        "image": "button_images/fire-icon.png",
+        "text": "the bush next to you catches fire",
+        "alt": "Fire Icon"
+    },
+    {
+        "wrapper-id": "Incident_Type",
+        "button-id": "other",
+        "image": "button_images/other-icon.png",
+        "text": "other (maybe you fall, or maybe you choked)",
+        "alt": "Other Icon"
+    }
+]   

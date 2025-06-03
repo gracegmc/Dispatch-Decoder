@@ -4,9 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scenario_builder.css" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <title>Scenario Builder</title>
 </head>
 <body>
+    <!-- HOME button -->
+    <button id="home" onclick="location.href='../index.html'">
+        Home
+    </button>
+
+    <!-- Scenario Building Begins -->
+    <div id="buttons-numbers">
+        <div id="scenario-container"></div>
+        <!-- Distance Input Field -->
+        <div id="distance-input-wrapper">
+            <label for="distance-input">
+                The closest EMS (in kilometers):
+            </label>
+            <input 
+                type="number" 
+                id="distance-input" 
+                placeholder="e.g. 10" 
+                min="1" 
+                max="50"
+            >
+        </div>
+    </div>
+    
+
+    <div class="plot-button">
+        <button id="plot">
+            How long would it take until the ambulance gets to me?
+        </button>
+    </div>
+    
+    <div id="warning"></div>
+
+    <div id="chart">
+        <div id="scatterplot-options">
+            <div id="toggles-wrapper" class="toggles-wrapper"></div>
+    
+            <div id="distance-input-slider">
+                <label for="distance-input">
+                    Distance from incident (in kilometers):
+                    <span id="distance-value">25</span> km
+                </label>
+                <input 
+                    type="range" 
+                    id="distance-input" 
+                    min="1" 
+                    max="50"
+                >
+            </div>
+        </div>
+        <svg></svg>
+    </div>
+    
+    
+    <script src="simulation.js"></script>
     
 </body>
 </html>

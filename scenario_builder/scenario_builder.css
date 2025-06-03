@@ -1,0 +1,202 @@
+/* General Page Style */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 40px 20px;
+    color: #333;
+}
+
+/* BUTTONS */
+#buttons-numbers {
+    border: 2px solid #ccc; /* Gray border */
+    border-radius: 12px;
+    padding: 10px;
+    margin: 20px 0 40px 0; /* top: 20px, bottom: 40px */
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.scenario-button {
+    text-align: center;
+    margin: 0px 0 20px 0; /* top: 20px, bottom: 40px */
+    padding: 5px;
+    background-color: #ffffff;
+}
+.scenario-button h3 {
+    margin: 0px 0 12px 0; /* top: 8px, bottom: 12px */
+    font-size: 200%;
+}
+.button-wrapper {
+    display: inline-block;
+    padding: 1%;
+    margin: 0 10px;
+}
+.button-wrapper button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 200px; /* fixed width for consistency */
+    aspect-ratio: 1 / 1; /* match width for square shape */
+    transition: transform 0.2s ease, background-color 0.2s ease, border 0.2s ease;
+    box-sizing: border-box; /* ensures padding doesn't exceed size */
+}
+.button-wrapper button.selected {
+    border: 1.5px solid #cb6767;
+    box-shadow: 0 0 8px #cb6767;
+}
+.button-wrapper button:hover {
+    background-color: #cb6767;
+    transform: scale(1.1);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.button-wrapper button img {
+    width: 80%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover; /* ensures square shape */
+    margin-bottom: 8px;
+}
+
+/* DISTANCE INPUT */
+#distance-input-wrapper {
+    text-align: center;
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #ffffff;
+}
+#distance-input-wrapper label {
+    font-size: 1.5rem;   /* bigger label text */
+    margin-right: 15px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+#distance-input-wrapper input {
+    padding: 10px 14px;     /* bigger padding for bigger input */
+    border-radius: 6px;
+    border: 1.5px solid #ccc;
+    width: 160px;           /* wider input */
+    font-size: 1.5rem;      /* bigger input text */
+    vertical-align: middle;
+}
+
+/* PLOT button */
+.plot-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+.plot-buttons button#plot {
+    width: 80%;
+    padding: 1rem 2rem;
+    background-color: white; /* lighter than #cb6767 */
+    color: black;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.plot-buttons button#plot:hover {
+    background-color: #cb6767;
+    transform: scale(1.05);
+}
+
+/* Warning */
+#warning {
+    display: none; /* update to flex with js*/
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    padding: 15px 20px;
+    max-width: 600px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: 2px solid #cb6767;
+    background-color: #ffe6e6;
+    color: #cb0000;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* CHART */
+#chart {
+    display: none; /* WILL UPDATE TO FLEX USING JS */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+    border: 2px solid #cb6767; /* Red border around everything */
+    border-radius: 12px;
+}
+
+/* One big box for toggles + slider */
+#scatterplot-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    max-width: 900px;
+    width: 100%;
+}
+
+/* toggles inside */
+.toggles-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* individual toggle container */
+.toggle-container {
+    flex: 1;
+    min-width: 150px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1.1rem;
+}
+
+.toggle-container select {
+    width: 100%;
+    font-size: 1rem;
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin-top: 5px;
+}
+
+/* Slider styling */
+#distance-input-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+#distance-input-slider label {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+#distance-input {
+    width: 100%;
+    margin-bottom: 6px;
+}
+
+#distance-value {
+    font-weight: bold;
+    color: #cb6767;
+}
